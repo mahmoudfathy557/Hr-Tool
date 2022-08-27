@@ -1,0 +1,25 @@
+.spinner-grow {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  vertical-align: text-bottom;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-animation: spinner-grow 0.75s linear infinite;
+  animation: spinner-grow 0.75s linear infinite;
+}
+
+.loader-spinner {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  overflow: hidden;
+}
+
+.skeleton-logo {
+  margin-top: 9rem !important
+}
