@@ -17,6 +17,7 @@ import Login from './pages/Login/Login'
 
 import { IntranetContext } from './context'
 import MyNavbar from './components/Navbar'
+import Register from './pages/Login/Register'
 
 export default function App() {
   const { user, serverError } = useContext(IntranetContext)
@@ -29,7 +30,9 @@ export default function App() {
           <PublicRoute path='/login' isAuthenticated={isAuthenticated}>
             <Login />
           </PublicRoute>
-
+          <PublicRoute path='/register' isAuthenticated={isAuthenticated}>
+            <Register />
+          </PublicRoute>
           <>
             <PrivateRoute path='/' isAuthenticated={isAuthenticated}>
               <ProtectedRoutes />

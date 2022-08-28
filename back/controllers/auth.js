@@ -3,7 +3,13 @@ const User = require('../models/User')
 const register = async (req, res) => {
   try {
     const user = await User.create({ ...req.body })
-    res.status(201).send({ user: { name: user.username } })
+    return res.status(200).send({
+      user: {
+        name: user.username,
+        id: user._id,
+        vacation: { annual: user.annual, sick: user.sick },
+      },
+    })
   } catch (error) {
     return res.status(400).send({ error: error.message })
   }

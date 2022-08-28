@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react'
 import './login.css'
-import MVLogo from '../../components/img/MVLogo-Yellow.svg'
+import MVLogo from '../../components/img/schneider.png'
 import { IntranetContext } from '../../context'
 
 import SkeletonLoader from '../../components/Skeleton/SkeletonLoader'
+import { Link } from 'react-router-dom'
 const Login = () => {
   const { user, login } = useContext(IntranetContext)
   const [username, setUsername] = useState('')
@@ -76,6 +77,10 @@ const Login = () => {
                 >
                   Sign in
                 </button>
+                <p>
+                  don't have an account?{' '}
+                  <Link to='/register'>Sign Up here</Link>
+                </p>
                 {showError && (
                   <div className='alert alert-danger' role='alert'>
                     {error}

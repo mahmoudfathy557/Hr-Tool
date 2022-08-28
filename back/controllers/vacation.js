@@ -2,10 +2,16 @@ const User = require('../models/User')
 
 const getUserVacations = async (req, res) => {
   const { id } = req.params
-  const user = await User.findById(id)
-  return res.status(200).send({
-    vacations: { annual: user.annual, sick: user.sick },
-  })
+  try {
+    const user = await User.findById(id)
+    return res.status(200).send({
+      vacations: { annual: user.annual, sick: user.sick },
+    })
+  } catch (error) {
+    return res.status(400).send({
+      error,
+    })
+  }
 }
 
 const reduceVacationBalance = async (req, res) => {

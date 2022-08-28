@@ -2,7 +2,6 @@ import React from 'react'
 import { Spinner } from 'react-bootstrap'
 import './skeleton.css'
 import '../../pages/Login/login.css'
-import dmgLogo from '../../components/img/dmg-logo.png'
 
 const MyLoader = () => (
   <div className='row d-flex justify-content-center mt-5'>

@@ -33,6 +33,8 @@ const Home = () => {
 
     setState({ ...state, days: businessDays })
   }
+
+  // when submitting the vacation
   const handleSubmit = async (e) => {
     e.preventDefault()
     const id = user.userData.id
@@ -41,6 +43,8 @@ const Home = () => {
 
     await reduceVacationBalance(id, type, days)
     await updateVacations()
+    setState({ ...state, startDate: '', endDate: '', days: '' })
+    alert('submitted successfully!!!')
   }
 
   // update days state if both start and end date are picked

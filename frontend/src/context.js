@@ -56,6 +56,32 @@ const IntranetProvider = ({ children }) => {
     }
   }
 
+  const register = async (username, password) => {
+    try {
+      const { data } = await axios.post(`${baseAPI}/auth/register`, {
+        username,
+        password,
+      })
+
+      const localUserData = { name: data.user.name, id: data.user.id }
+      localStorage.setItem('hr-tool', JSON.stringify(localUserData))
+      setUser({
+        isLoading: false,
+        isAuthenticated: true,
+        error: null,
+        userData: data?.user,
+      })
+    } catch (error) {
+      setUser({
+        isLoading: false,
+        isAuthenticated: false,
+        error: error?.response?.data?.msg,
+        userData: null,
+      })
+      return error
+    }
+  }
+
   const logout = () => {
     localStorage.removeItem('hr-tool')
     window.location.href = '/'
@@ -96,6 +122,7 @@ const IntranetProvider = ({ children }) => {
         isDataLoading,
         serverError,
         login,
+        register,
         logout,
         reduceVacationBalance,
         getUserVacations,
