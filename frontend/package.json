@@ -1,5 +1,5 @@
 {
-  "name": "survey_platform_mv",
+  "name": "schneider-hr-tool",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,6 @@
     "moment": "^2.29.4",
     "react": "*",
     "react-bootstrap": "*",
-    "react-datepicker": "^4.8.0",
     "react-dom": "*",
     "react-icons": "*",
     "react-router-dom": "^5.3.1",
